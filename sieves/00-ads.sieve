@@ -10,7 +10,7 @@ if address :matches :domain "from" ["*personalcapital.com", "*robinhood.com", "*
 # Ads is a label, NOT a folder
 elsif exists "list-unsubscribe"
 {
-    fileinto "Ads";
+    fileinto "Reklame";
 }
 
 # do NOT stop executing, allow other sieves to continue processing

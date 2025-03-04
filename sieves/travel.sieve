@@ -1,12 +1,19 @@
 require ["fileinto", "imap4flags", "vnd.proton.expire"];
 
-# Commonly used travel services
-if address :matches :domain "from" ["*southwest.com", "*hyatt.com", "*airbnb.com", 
-"*lyftmail.com", "*uber.com", "*hertz.com", "*alaskaair.com", "*delta.com", 
-"*goalamo.com", "*avis.com", "*ihg.com", "*kimptonhotels.com", "*hotels.com", 
-"*marriott.com", "*tripadvisor.com", "*aa.com", "*autoslash.com", "*priceline.com"]
+# Smartdelay updates
+if address :matches :domain "from" ["*smartdelay.com"]
 {
-    fileinto "Travel";
+    fileinto "Reise";
+    expire "day" "30";
+    stop; 
+}
+
+# Commonly used travel services
+if address :matches :domain "from" ["*norwegian.com", "*norwegian.no", "flysas.com", "*airbnb.com", 
+"*uber.com", "*hertz.com", "*avis.com", "*hotels.com", 
+"*tripadvisor.com", "connectbus.no"]
+{
+    fileinto "Reise";
     expire "day" "730";
     stop; 
 }
